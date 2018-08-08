@@ -74,7 +74,7 @@ end
 
 def title_case(str)
   str.split.collect do |word|
-    word.capitalize if word != "BBQ"
+    word == "BBQ"? word : word.capitalize
   end.join(" ")
 end
 
