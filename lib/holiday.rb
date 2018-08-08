@@ -56,8 +56,13 @@ def all_supplies_in_holidays(holiday_hash)
   # Summer:
   #   Fourth Of July: Fireworks, BBQ
   # etc.
-  holiday_hash.each do |season, holiday|
-    puts "#{title_case(season)}:"
+  holiday_hash.each do |season, holidays|
+    puts "#{title_case(season.to_s)}:"
+    holidays.each do |holiday, supplies|
+      holiday_list = "  #{title_case(holiday.to_s)}: "
+      holiday_list << supplies.collect {|decoration| title_case(decoration)}.join(", ")
+      puts holiday_list
+    end
   end
 end
 
@@ -67,8 +72,8 @@ def all_holidays_with_bbq(holiday_hash)
 
 end
 
-def title_case(sym)
-  sym.to_s.split.collect do |word|
+def title_case(str)
+  str.split.collect do |word|
     word.capitalize
   end.join(" ")
 end
