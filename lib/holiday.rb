@@ -67,6 +67,12 @@ def all_holidays_with_bbq(holiday_hash)
 
 end
 
+def title_case(str)
+  str.split.collect do |word|
+    word.capitalize
+  end.join(" ")
+end
+
 holiday_hash = {
     :winter => {
       :christmas => ["Lights", "Wreath"],
